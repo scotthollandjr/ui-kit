@@ -18,7 +18,7 @@ class App extends Component {
     var toggle = this.state.checked ? 'light' : 'dark';
     return (
       <div className={`container ${toggle}`}>
-        <div>
+        <div className="switch-container">
           <label className="switch">
             <input type="checkbox" onChange={this.handleToggle} />
             <span className="slider"></span>

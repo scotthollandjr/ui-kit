@@ -1,20 +1,20 @@
-$container-dark:    #2C3E50;
-$container-light:   #E4F1FE;
-$purple-dark:       #674172;
-$green-dark:        #1E824C;
-$red-dark:          #96281B;
-$orange-dark:       #D35400;
-$purple-light:      #947CB0;
-$green-light:       #3FC380;
-$red-light:         #D91E18;
-$orange-light:      #F27935;
+$main-dark:         #22313F;
+$main-light:        #F2F1EF;
+$purple-light:      #674172;
+$green-light:       #1E824C;
+$red-light:         #96281B;
+$blue-light:        #446CB3;
+$purple-dark:       #947CB0;
+$green-dark:        #66CC99;
+$red-dark:          #D64541;
+$blue-dark:         #5C97BF;
 
 .container {
   width: 100%;
   height: 100vh;
 
   &.dark {
-    background-color: $container-dark;
+    background-color: $main-dark;
 
     .square {
       &.purple {
@@ -30,13 +30,13 @@ $orange-light:      #F27935;
       }
 
       &.orange {
-        background-color: $orange-dark;
+        background-color: $blue-dark;
       }
     }
   }
 
   &.light {
-    background-color: $container-light;
+    background-color: $main-light;
 
     .square {
       &.purple {
@@ -52,7 +52,7 @@ $orange-light:      #F27935;
       }
 
       &.orange {
-        background-color: $orange-light;
+        background-color: $blue-light;
       }
     }
   }
@@ -72,11 +72,17 @@ $orange-light:      #F27935;
   }
 }
 
+.switch-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .switch {
   position: relative;
   display: inline-block;
   width: 60px;
   height: 34px;
+  margin: 10px;
 }
 
 .switch input {
@@ -90,7 +96,7 @@ $orange-light:      #F27935;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: $container-dark;
+  background-color: $main-dark;
   -webkit-transition: .4s;
   transition: .4s;
   border-radius: 34px;
@@ -110,11 +116,11 @@ $orange-light:      #F27935;
 }
 
 input:checked + .slider {
-  background-color: $container-light;
+  background-color: $main-light;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px $container-light;
+  box-shadow: 0 0 1px $main-light;
 }
 
 input:checked + .slider:before {
