@@ -101,16 +101,19 @@ $blue-dark:         #5C97BF;
   .radio {
     display: block;
     position: relative;
-    padding-left: 27px;
+    height: 30px;
+    width: 30px;
     cursor: pointer;
     font-size: 22px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    height: 23px;
-    margin: 17px;
-    margin-top: 7px;
+    margin: 15px;
+
+    &:first-child {
+      margin-top: 7px;
+    }
   }
 
   .radio input {
@@ -125,6 +128,15 @@ $blue-dark:         #5C97BF;
     height: 30px;
     width: 30px;
     border-radius: 50%;
+    transition: .3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &:active {
+      filter: brightness(.85);
+    }
   }
 }
 

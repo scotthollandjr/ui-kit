@@ -57,16 +57,17 @@
   .radio-container .radio {
     display: block;
     position: relative;
-    padding-left: 27px;
+    height: 30px;
+    width: 30px;
     cursor: pointer;
     font-size: 22px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    height: 23px;
-    margin: 17px;
-    margin-top: 7px; }
+    margin: 15px; }
+    .radio-container .radio:first-child {
+      margin-top: 7px; }
   .radio-container .radio input {
     position: absolute;
     opacity: 0; }
@@ -76,7 +77,12 @@
     left: 0;
     height: 30px;
     width: 30px;
-    border-radius: 50%; }
+    border-radius: 50%;
+    transition: .3s; }
+    .radio-container .radio-button:hover {
+      transform: scale(1.1); }
+    .radio-container .radio-button:active {
+      filter: brightness(0.85); }
 
 .switch-container {
   display: flex;

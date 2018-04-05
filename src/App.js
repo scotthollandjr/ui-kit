@@ -16,7 +16,7 @@ class App extends Component {
   }
 
   handleRadioChange = (changeEvent) => {
-    this.setState({selectedOption: changeEvent.target.value}, console.log(this.state.selectedOption));
+    this.setState({selectedOption: changeEvent.target.value});
   }
 
   render() {
