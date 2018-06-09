@@ -1,4 +1,4 @@
-$main-dark:         #22313F;
+$main-dark:         #1b1e21;
 $main-light:        #F2F1EF;
 $purple-light:      #674172;
 $green-light:       #1E824C;
@@ -11,86 +11,253 @@ $blue-dark:         #5C97BF;
 
 .container {
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  min-height: 1050px;
 
   &.dark {
     background-color: $main-dark;
-    color: $main-light;
 
     &.purple {
-      .square {
-        background: $purple-dark;
+      color: $purple-dark;
+      border-color: $purple-dark;
+
+      .circle {
+        background-color: $purple-dark;
+        border-color: $purple-dark;
       }
-      /*$secondary: $purple-dark;*/
     }
 
     &.green {
-      .square {
-        background: $green-dark;
+      color: $green-dark;
+      border-color: $green-dark;
+
+      .circle {
+        background-color: $green-dark;
+        border-color: $green-dark;
       }
-      /*$secondary: $green-dark;*/
     }
 
     &.red {
-      .square {
-        background: $red-dark;
+      color: $red-dark;
+      border-color: $red-dark;
+
+      .circle {
+        background-color: $red-dark;
+        border-color: $red-dark;
       }
-      /*$secondary: $red-dark;*/
     }
 
     &.blue {
-      .square {
-        background: $blue-dark;
+      color: $blue-dark;
+      border-color: $blue-dark;
+
+      .circle {
+        background-color: $blue-dark;
+        border-color: $blue-dark;
       }
-      /*$secondary: $blue-dark; */
     }
   }
 
   &.light {
     background-color: $main-light;
-    color: $main-dark;
 
     &.purple {
-      .square {
-        background: $purple-light;
+      color: $purple-light;
+      border-color: $purple-light;
+
+      .circle {
+        background-color: $purple-light;
+        border-color: $purple-light;
       }
-      /*$secondary: $purple-light;*/
     }
 
     &.green {
-      .square {
-        background: $green-light;
+      color: $green-light;
+      border-color: $green-light;
+
+      .circle {
+        background-color: $green-light;
+        border-color: $green-light;
       }
-      /*$secondary: $green-light;*/
     }
 
     &.red {
-      .square {
-        background: $red-light;
+      color: $red-light;
+      border-color: $red-light;
+
+      .circle {
+        background-color: $red-light;
+        border-color: $red-light;
       }
-      /*$secondary: $red-light;*/
     }
 
     &.blue {
-      .square {
-        background: $blue-light;
+      color: $blue-light;
+      border-color: $blue-light;
+
+      .circle {
+        background-color: $blue-light;
+        border-color: $blue-light;
       }
-      /*$secondary: $blue-light; */
     }
   }
 }
 
-.square-container {
-  width: 100%;
-  max-width: 700px;
+.content {
+  width: 90%;
+  max-width: 950px;
   margin: 0 auto;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  // border: 1px solid;
+  padding: 20px;
 
-  .square {
-    width: 50%;
-    max-width: 350px;
-    height: 350px;
+  .top {
+    display: flex;
+    flex-direction: column;
+
+    .title {
+      font-size: 23pt;
+      font-weight: 400;
+    }
+
+    .sub-title {
+      font-size: 14pt;
+      font-weight: 100;
+    }
+
+    .top-row {
+      display: flex;
+      flex-direction: row;
+      flex: 1;
+      margin: 15px 0px 25px;
+
+      .item {
+        flex: 1;
+
+        &.center {
+          text-align: center;
+        }
+
+        &.right {
+          text-align: right;
+        }
+      }
+    }
+  }
+
+  .bottom {
+    display: flex;
+    flex-direction: row;
+
+    .header {
+      font-size: 20pt;
+      text-transform: uppercase;
+      border-bottom: 2px solid;
+    }
+
+    .left, .right {
+      display: flex;
+      flex-direction: column;
+
+      .segment {
+        display: flex;
+        flex-direction: column;
+
+        .row {
+          display: flex;
+          flex-direction: row;
+          align-items: space-between;
+
+          .circles {    
+            display: flex;
+            flex-direction: row;
+            flex: 1;
+            justify-content: flex-end;
+
+            .circle {
+              height: 14px;
+              width: 14px;
+              border-radius: 50%;
+              margin: 3px;
+              border: 2px solid;
+
+              &.empty {
+                background: transparent;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .left {
+      flex: 4;
+      margin-right: 50px;
+    }
+
+    .right {
+      flex: 3;
+    }
+  }
+}
+
+.content {
+  position: relative;
+
+  &::before, &::after {
+    box-sizing: inherit;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.border {
+  transition: color 0.5s;
+
+  &::before, &::after {
+    border: 2px solid transparent;
+    width: 0;
+    height: 0;
+  }
+
+  &::before {
+    top: 0;
+    left: 0;
+  }
+  
+   &::after {
+    top: 0;
+    left: 0;
+  }
+
+  &.animate {
+    &::before, &::after {
+      width: 100%;
+      height: 100%;
+    }
+
+    &::before {
+      transition: width 0.5s ease-out, height 0.5s ease-out 0.5s;
+    }
+
+    &::after {
+      transition: border-color 0s ease-out 0.5s, width 0.5s ease-out 1s, height 0.5s ease-out 1.5s;
+    }
+
+
+    &::before {
+      border-top-color: inherit;
+      border-right-color: inherit;
+    }
+
+    &::after {
+      border-bottom-color: inherit;
+      border-left-color: inherit;
+      transition: height 0.5s ease-out, width 0.5s ease-out 0.5s;
+    }
   }
 }
 
